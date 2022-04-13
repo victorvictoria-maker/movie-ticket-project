@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vicky's Movie Admin</title>
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
+	<script type="text/javascript" src="bootstrap-4.3.1-dist/js/jquery.js"></script>
+    <script type="text/javascript" src="bootstrap-4.3.1-dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="manage.css">
+</head>
+<body>
+
+    <!-- navigation -->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-light fixed-top">
+
+        <!-- button for collapse -->
+        <div id="colbtn">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    
+        <!-- nav links -->
+        <div class="collapse navbar-collapse" id="collapseNav">
+            <ul class="navbar-nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link text-white active text-center" href="index.html">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white text-center" href="#" onclick="linkToAdminMan()">ADMIN PAGE</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white text-center" href="manage.html">MANAGE MOVIE</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white text-center" href="#">BOOK SEAT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white text-center" href="#">GET TICKET</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- the table to show movies to manage -->
+    <div class="row mt-5" id="managemoviepage">
+		<div class="container-fluid mt-5" id="managebackground">
+			<div  class="col-md-6 col-11 mx-auto offset-md-3 mt-5 rounded" id="managemovie">
+					<div id="tablewrapper" class="text-center">
+						<h3 id="movinfo">Movie Informations</h3>
+
+						<!-- the table showing the books stored -->
+						<div id="tabledisplay" class="table-responsive bg-dark">
+
+						</div>
+					</div>
+			</div>
+		</div>
+    </div>
+    
+
+    <!-- admin login modal box -->
+    <div id="adminlogin" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+	    <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+			    <div class="modal-body">
+				    <div class = "form-group">
+					    <label for="exampleInputEmail1">Name :</label>
+					    <input type="email" class="form-control" id="adminname" aria-describedby="emailHelp" placeholder="Enter your name">
+				    </div>
+				    <div class="form-group">
+					    <label for="exampleInputPassword1">Password :</label>
+					    <input type="password" class="form-control" id="adminpassword" placeholder="Password">
+				    </div>
+				    <button id="signin" type="submit" class="btn btn-primary" onclick="adminSignInMan()">Sign In</button>
+				    <p class="float-right text-primary">Forgot password?</p>
+				    </form>	
+			    </div>
+		    </div>
+	    </div>
+    </div>
+
+
+    <!-- add movie page -->
+    <div class="row mt-5" id="addmoviepage">
+        <div class="container-fluid mt-5" id="adminbackground">
+            <div class="row ">
+                <div class="col-md-6 col-11 mx-auto offset-md-3 mt-5 rounded" id="addmovie">
+                    <div class="row m-3">
+                        <div class="col-md-6 d-none d-md-inline">come</div>
+                        <div class="col-md-6 mt-4">
+                            <div>
+                                <div class="form-group">
+                                    <label for="my-input">Name:</label>
+                                    <input id="moviename" value="" class="form-control-file allinputs" type="text" name="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="my-input">Seat No:</label>
+                                    <input id="seatnumber" value="" class="form-control-file allinputs" type="number" min="1" max="200" name="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="my-input">Date:</label>
+                                    <input id="date" value="" class="form-control-file allinputs" type=" " name="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="my-input">Time:</label>
+                                    <input id="time" value="" class="form-control-file allinputs" type=" " name="">
+                                </div>
+                                <div class="form-group mt-4">
+                                    <input id="picsinput" id="" class="form-control-file allinputs" type="file" name="">
+                                </div>
+                                <button class="btn btn-primary" type="button" onclick="storeMovieLs()">Add Movie</button>
+                                <a href="manage.html"  class="btn btn-primary ml-5 text-light" type="button">Manage Movie</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- edit movie modal box -->
+    <div id="editmoviemodal" class="modal fade mt-5" tabindex="-1" role="dialog" aria-hidden="true">
+	    <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+			    <div class="modal-body">
+                    <div>
+                        <div class="form-group">
+                            <label for="my-input">Name:</label>
+                            <input id="editmoviename" value="" class="form-control-file allinputs" type="text" name="">
+                        </div>
+                        <div class="form-group">
+                            <label for="my-input">Seat No:</label>
+                            <input id="editseatnumber" value="" class="form-control-file allinputs" type="number" min="1" max="200" name="">
+                        </div>
+                        <div class="form-group">
+                            <label for="my-input">Date:</label>
+                            <input id="editdate" value="" class="form-control-file allinputs" type=" " name="">
+                        </div>
+                        <div class="form-group">
+                            <label for="my-input">Time:</label>
+                            <input id="edittime" value="" class="form-control-file allinputs" type=" " name="">
+                        </div>
+                        <div class="form-group mt-4">
+                            <input id="editpicsinput" id="" class="form-control-file allinputs" type="file" name="">
+                        </div>
+                        <button class="btn btn-primary" type="button" id="updateedit">Edit This Movie</button>
+                    </div>	
+			    </div>
+		    </div>
+	    </div>
+    </div>
+
+    <script src="manage.js" type="text/javascript"></script>
+    <script src="main.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+* {
+    outline: none;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+#addmoviepage {
+    display: none;
+}
+
+#managemoviepage,
+#managemoviepage {
+    display: none;
+}
+
+#adminbackground,
+#managebackground {
+    width: 100%;
+    height: 80vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-blend-mode: color-burn;
+}
+
+#addmovie,
+#managepage {
+    height: 450px;
+    width: 80%;
+    background-color: #ffffff;
+    box-shadow:2px 2px 10px rgb(228, 224, 224), -2px -2px 10px rgb(228, 224, 224) ;
+    position: relative;
+    top: 45px;
+}
+
+#movinfo {
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+#tablewrapper {
+    position: relative;
+    top: 40px;
+}
+
+#tabledisplay {
+    height: auto;
+    width: 100%;
+    color: #fff !important;
+}
